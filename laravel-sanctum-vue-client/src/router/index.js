@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import redirectIfGuest from "../middleware/redirectIfGuest.js";
 import middlewarePipeline from "./processMiddleware.js";
+import redirectIfAuthenticated from "../middleware/redirectIfAuthenticated.js";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,11 +15,17 @@ const router = createRouter({
             path: '/login',
             name: 'login',
             component: () => import('../views/Login.vue'),
+            meta: {
+                middleware: [redirectIfAuthenticated]
+            }
         },
         {
             path: '/register',
             name: 'register',
             component: () => import('../views/Register.vue'),
+            meta: {
+                middleware: [redirectIfAuthenticated]
+            }
         },
         {
             path: '/dashboard',
