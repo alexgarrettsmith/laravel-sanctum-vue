@@ -22,11 +22,11 @@ router.afterEach((to, from) => {
   <header class="bg-white">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-12">
-        <a href="#" class="-m-1.5 p-1.5">
+        <RouterLink :to="{ name: 'home' }" class="-m-1.5 p-1.5">
             <span class="text-xl font-bold">
               Codecourse
             </span>
-        </a>
+        </RouterLink>
         <div class="hidden lg:flex lg:gap-x-12">
           <RouterLink :to="{ name: 'dashboard' }" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</RouterLink>
         </div>
